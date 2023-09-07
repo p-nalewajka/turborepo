@@ -6,5 +6,6 @@
   "linked": [],
   "access": "public",
   "updateInternalDependencies": "patch",
-  "ignore": ["storybook-docs"]
+  "ignore": ["storybook-docs"],
+  "baseBranch": "main"
 }
