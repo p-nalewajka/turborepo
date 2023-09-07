@@ -12,8 +12,12 @@
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
     "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
-    "lint": "eslint src/",
+    "lint": "eslint --fix src/",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.9",

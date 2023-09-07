@@ -1,0 +1,121 @@
+@import './utils';
+
+// # Font Size Variables
+
+// This document keeps a updated list of font sizes and line heights for the fonts in Nexus.
+
+$normal-font-sizes: (
+    'h1': 3rem,
+    // 48px
+    'h2': 2.25rem,
+    // 36px
+    'h3': 1.875rem,
+    // 30px
+    'h4': 1.5rem,
+    // 24px
+    'h5': 1.25rem,
+    // 20px
+    'h6': 1rem,
+    // 16px
+    'sub1': 1.125rem,
+    // 18px
+    'sub2': 1rem,
+    // 16px
+    'p': 0.875rem,
+    // 14px
+    'bold': 0.875rem,
+    // 14px
+    'label': 0.75rem,
+    // 12px
+    'defaultbtn': 1rem,
+    // 16px
+    'smallbtn': 0.875rem,
+    // 14px
+    // deprecated
+    'label1': 0.75rem,
+    // 12px
+    'primarybtn': 1rem,
+    // 16px
+    'tertiarybtn': 0.875rem,
+    // 14px
+    'hyperlink': 0.875rem,
+    // 14px
+    'sub3': 0.875rem,
+    // 14px
+    'label2': 0.75rem,
+    // 12px
+    'overline': 0.75rem,
+    // 12px
+    'legal': 0.75rem,
+    // 12px
+);
+
+$large-font-sizes: (
+    'h1': 3.75rem,
+    // 60px
+    'h2': 3rem,
+    // 48px
+    'h3': 2.25rem,
+    // 36px
+    'h4': 1.875rem,
+    // 30px
+    'h5': 1.625rem,
+    // 26px
+    'h6': 1.25rem,
+    // 20px
+    'sub1': 1.5rem,
+    // 24px
+    'sub2': 1.25rem,
+    // 20px
+    'p': 1.125rem,
+    // 18px
+    'bold': 1.125rem,
+    // 18px
+    'label': 1rem,
+    // 16px
+    'defaultbtn': 1.375rem,
+    // 22px
+    'smallbtn': 1.25rem,
+    // 20px
+    // depricated
+    'label1': 1.125rem,
+    // 18px
+    'primarybtn': 1.375rem,
+    // 22px
+    'tertiarybtn': 1.25rem,
+    // 20px
+    'hyperlink': 1.125rem,
+    // 20px
+    'sub3': 0.875rem,
+    // 14px
+    'label2': 0.75rem,
+    // 12px
+    'overline': 0.75rem,
+    // 12px
+    'legal': 0.75rem,
+    // 12px
+);
+
+@function calculate-font-size($variant, $header) {
+    @if $header == 'default' {
+        @return 'inherit';
+    }
+
+    @if $variant == 'large' {
+        @return map-get($large-font-sizes, $header);
+    }
+
+    @return map-get($normal-font-sizes, $header);
+}
+
+@function calculate-line-height($variant, $header) {
+    @if $header == 'default' {
+        @return 'inherit';
+    }
+
+    @if $variant == 'large' {
+        @return get-line-height(map-get($large-font-sizes, $header));
+    }
+
+    @return get-line-height(map-get($normal-font-sizes, $header));
+}

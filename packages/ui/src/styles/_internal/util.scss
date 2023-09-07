@@ -1,0 +1,143 @@
+@import 'styles/responsive';
+
+$tablet: get-breakpoint('tablet');
+
+// stylelint-disable selector-class-pattern, plugin/selector-class-pattern, selector-bem-pattern, plugin/selector-bem-pattern
+.story-as-body > div > div:first-child {
+    min-height: 400px;
+}
+
+// IconButton Example
+.MyIconButton {
+    &_button {
+        background-color: #fef1f1 !important;
+        border-color: #fef1f1 !important;
+    }
+
+    &_icon {
+        color: #f73e3c;
+
+        &:hover {
+            color: #b92624;
+        }
+
+        &:active {
+            color: #a41313;
+        }
+    }
+}
+
+// Tooltip
+.tooltip-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 4em;
+}
+
+.tooltip-content {
+    height: 35px;
+}
+
+.tooltip-truncated {
+    max-width: 17.5rem !important; // 280px;
+}
+
+.truncated-text {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+// stylelint-enable selector-class-pattern, plugin/selector-class-pattern, selector-bem-pattern, plugin/selector-bem-pattern
+// LeftNavHeader
+.LeftNavHeaderStory {
+    position: static !important;
+}
+
+.LeftNavHeaderStory_arrowBtn {
+    order: 3;
+    width: 24px !important;
+    height: 44px !important;
+    border-radius: 4px 0 0 4px !important;
+
+    @include screen-greater-than($tablet) {
+        display: none !important;
+    }
+}
+
+.LeftNavHeaderStory_hideOnMobile {
+    @include screen-smaller-than($tablet) {
+        display: none !important;
+    }
+}
+// stylelint-disable selector-class-pattern, plugin/selector-class-pattern, selector-bem-pattern, plugin/selector-bem-pattern
+// LeftNav
+.LeftNavStory {
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+
+    .css-kdwx3d {
+        height: 400px;
+    }
+
+    .css-11xgcgt {
+        z-index: 30000;
+    }
+
+    .css-ywd5pw {
+        z-index: 30000;
+        background: #000000;
+    }
+}
+// stylelint-enable selector-class-pattern, plugin/selector-class-pattern, selector-bem-pattern, plugin/selector-bem-pattern
+.LeftNavMainStory {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    transform: scale(1);
+}
+
+// LeftNavSettings
+.LeftNavSettings_customBtn {
+    color: #b92624 !important;
+}
+
+// Image With Actions
+.RoundImageWithActions {
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+// Image Selector
+.RoundImageSelector {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.ImageSelectorWrapper {
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: #d2d3d3;
+    border: 1px solid #124c5c;
+}
+
+// Popover
+.PopoverWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+}
+
+// ToggleTip
+.ToggleTipWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+
+    &_link {
+        margin: 0;
+    }
+}

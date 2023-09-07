@@ -1,0 +1,200 @@
+// stylelint-disable declaration-empty-line-before
+// stylelint-disable custom-property-empty-line-before
+
+// Top hierarchy. Invites the user to pay attention to scpecific areas. Used
+// for interactive or selected elements.
+$primary10: #e8f0ff;
+$primary20: #b5cffe;
+$primary30: #7dabff;
+$primary50: #1769ff;
+$primary70: #1254cc;
+$primary80: #0e3f99;
+$primary90: #092a66;
+
+// For elements like backgrounds, texts, and general shapes such as dividers.
+$base10: #f7f7fa;
+$base20: #e5e7ec;
+$base30: #bbc0ce;
+$base50: #77819c;
+$base70: #646e8a;
+$base80: #47516e;
+$base90: #353f5e;
+
+$white: #ffffff;
+$black: #08031d;
+
+// Medium level of positive attention. Can be use for confirmations, approvals,
+// deep interaction.
+$informative10: #e2def7;
+$informative20: #c6beef;
+$informative30: #9b8de2;
+$informative50: #705cd6;
+$informative70: #4f37c9;
+$informative80: #402bab;
+$informative90: #321f94;
+
+// Highest level of positive attention. Positive money figures.
+$success10: #cceedc;
+$success20: #99ddb9;
+$success30: #4dc484;
+$success50: #00ab4f;
+$success70: #00893f;
+$success80: #00672f;
+$success90: #015428;
+
+// Medium level of urgency.
+$warning10: #fcf1d9;
+$warning20: #ffe5b4;
+$warning30: #ffd27b;
+$warning50: #ffc043;
+$warning70: #ffb234;
+$warning80: #cb7302;
+$warning90: #a15d24;
+
+// Use for error states, negative and destructive actions with a high level of
+// urgency.
+$danger10: #f8dddd;
+$danger20: #fcbcbb;
+$danger30: #f97877;
+$danger50: #da0b09;
+$danger70: #b92624;
+$danger80: #a41313;
+$danger90: #8c0000;
+
+// Used for loyalty assets such as rewards and spots.
+$loyalty10: #cc9a36; // none exists, using loyalty50
+$loyalty20: #cc9a36; // none exists, using loyalty50
+$loyalty30: #dfc878;
+$loyalty50: #cc9a36;
+$loyalty70: #8c6c3d;
+$loyalty80: #9d7628;
+$loyalty90: #9d7628; // non exists, using loyalty80
+
+:root {
+    --primary10: #e8f0ff;
+    --primary20: #b5cffe;
+    --primary30: #7dabff;
+    --primary50: #1769ff;
+    --primary70: #1254cc;
+    --primary80: #0e3f99;
+    --primary90: #092a66;
+
+    --base10: #f7f7fa;
+    --base20: #e5e7ec;
+    --base30: #bbc0ce;
+    --base50: #77819c;
+    --base70: #646e8a;
+    --base80: #47516e;
+    --base90: #353f5e;
+
+    --white: #ffffff;
+    --black: #08031d;
+
+    --shadow: rgba(53, 63, 94, 0.1);
+
+    --informative10: #e2def7;
+    --informative20: #c6beef;
+    --informative30: #9b8de2;
+    --informative50: #705cd6;
+    --informative70: #4f37c9;
+    --informative80: #402bab;
+    --informative90: #321f94;
+
+    --success10: #cceedc;
+    --success20: #99ddb9;
+    --success30: #4dc484;
+    --success50: #00ab4f;
+    --success70: #00893f;
+    --success80: #00672f;
+    --success90: #015428;
+
+    --warning10: #fcf1d9;
+    --warning20: #ffe5b4;
+    --warning30: #ffd27b;
+    --warning50: #ffc043;
+    --warning70: #ffb234;
+    --warning80: #cb7302;
+    --warning90: #c7732c;
+
+    --danger10: #f8dddd;
+    --danger20: #fcbcbb;
+    --danger30: #f97877;
+    --danger50: #da0b09;
+    --danger70: #b92624;
+    --danger80: #a41313;
+    --danger90: #8c0000;
+
+    --loyalty10: #cc9a36; // none exists, using loyalty50
+    --loyalty20: #cc9a36; // none exists, using loyalty50
+    --loyalty30: #cc9a36; // none exists, using loyalty50
+    --loyalty50: #cc9a36;
+    --loyalty70: #b5882e;
+    --loyalty80: #9d7628;
+    --loyalty90: #9d7628; // non exists, using loyalty80
+    // stylelint-disable-next-line custom-property-pattern
+    --loyaltyGradient: linear-gradient(90deg, #dfc878, #8c6c3d);
+}
+
+// Export all of these colors for use in JS
+:export {
+    primary10: var(--primary10);
+    primary20: var(--primary20);
+    primary30: var(--primary30);
+    primary50: var(--primary50);
+    primary70: var(--primary70);
+    primary80: var(--primary80);
+    primary90: var(--primary90);
+
+    base10: var(--base10);
+    base20: var(--base20);
+    base30: var(--base30);
+    base50: var(--base50);
+    base70: var(--base70);
+    base80: var(--base80);
+    base90: var(--base90);
+
+    white: var(--white);
+    black: var(--black);
+
+    informative10: var(--informative10);
+    informative20: var(--informative20);
+    informative30: var(--informative30);
+    informative50: var(--informative50);
+    informative70: var(--informative70);
+    informative80: var(--informative80);
+    informative90: var(--informative90);
+
+    success10: var(--success10);
+    success20: var(--success20);
+    success30: var(--success30);
+    success50: var(--success50);
+    success70: var(--success70);
+    success80: var(--success80);
+    success90: var(--success90);
+
+    warning10: var(--warning10);
+    warning20: var(--warning20);
+    warning30: var(--warning30);
+    warning50: var(--warning50);
+    warning70: var(--warning70);
+    warning80: var(--warning80);
+    warning90: var(--warning90);
+
+    danger10: var(--danger10);
+    danger20: var(--danger20);
+    danger30: var(--danger30);
+    danger50: var(--danger50);
+    danger70: var(--danger70);
+    danger80: var(--danger80);
+    danger90: var(--danger90);
+
+    loyalty10: var(--loyalty10);
+    loyalty20: var(--loyalty20);
+    loyalty30: var(--loyalty30);
+    loyalty50: var(--loyalty50);
+    loyalty70: var(--loyalty70);
+    loyalty80: var(--loyalty80);
+    loyalty90: var(--loyalty90);
+    // stylelint-disable-next-line custom-property-pattern
+    loyaltyGradient: var(--loyaltyGradient);
+}

@@ -1,0 +1,134 @@
+import Accordion from './examples/Accordion.example.component';
+import AccordionString from '!raw-loader!components/Accordion/examples/Accordion.example.component.tsx';
+import styles from '!raw-loader!components/Accordion/examples/Accordion.module.scss';
+
+import MultipleAccordion from './examples/MultipleAccordion.example.component';
+import MultipleAccordionString from '!raw-loader!components/Accordion/examples/MultipleAccordion.example.component.tsx';
+import MultipleAccordionStyles from '!raw-loader!components/Accordion/examples/MultipleAccordion.module.scss';
+
+import LargeAccordion from './examples/LargeAccordion.example.component';
+import LargeAccordionString from '!raw-loader!components/Accordion/examples/LargeAccordion.example.component.tsx';
+import LargeAccordionStyles from '!raw-loader!components/Accordion/examples/LargeAccordion.module.scss';
+
+import AccordionCheckboxes from './examples/AccordionCheckboxes.example.component';
+import AccordionCheckboxesString from '!raw-loader!components/Accordion/examples/AccordionCheckboxes.example.component.tsx';
+import AccordionCheckboxesStyles from '!raw-loader!components/Accordion/examples/AccordionCheckboxes.module.scss';
+
+import AccordionChips from './examples/AccordionChips.example.component';
+import AccordionChipsString from '!raw-loader!components/Accordion/examples/AccordionChips.example.component.tsx';
+import AccordionChipsStyles from '!raw-loader!components/Accordion/examples/AccordionChips.module.scss';
+
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+<Meta
+    title="Nexus/Components/Accordions/Accordion/Examples"
+    parameters={{
+        chromatic: {
+            viewports: [320, 768, 1024],
+        },
+    }}
+/>
+
+# Accordion Examples
+
+## Single Accordion With Props
+
+<Canvas>
+    <Story
+        name="Single Accordion"
+        parameters={{
+            docs: {
+                source: {
+                    code: `${AccordionString}\nSCSS:\n${styles}`,
+                },
+            },
+        }}
+    >
+        {(args) => <Accordion {...args} />}
+    </Story>
+</Canvas>
+
+## Accordion Examples
+
+<Canvas>
+    <Story
+        name="Accordion Examples"
+        parameters={{
+            docs: {
+                source: {
+                    code: `${MultipleAccordionString}\nSCSS:\n${MultipleAccordionStyles}`,
+                },
+            },
+            chromatic: {
+                viewports: [768, 1024],
+            },
+        }}
+    >
+        {(args) => <MultipleAccordion {...args} />}
+    </Story>
+</Canvas>
+
+## Large Size Accordion
+
+The regular accordion has max-width of `520px`, and a padding of `1rem`. It's possible to implement a  `large` variant of accordion with help of `className` prop.
+
+<Canvas>
+    <Story
+        name="Large Size"
+        parameters={{
+            docs: {
+                source: {
+                    code: `${LargeAccordionString}\nSCSS:\n${LargeAccordionStyles}`,
+                },
+            },
+            chromatic: {
+                viewports: [768, 1024],
+            },
+        }}
+    >
+        {(args) => <LargeAccordion {...args} />}
+    </Story>
+</Canvas>
+
+## Checkboxes
+
+Use checkboxes to show a list of selectable items. The selection can be shown in the collapsed version of the accordion as a preview. [Go to the checkboxes](?path=/docs/nexus-components-checkboxes-checkbox--main-story) for further guidance.
+<Canvas>
+    <Story
+        name="With Checkboxes"
+        parameters={{
+            docs: {
+                source: {
+                    code: `${AccordionCheckboxesString}\nSCSS:\n${AccordionCheckboxesStyles}`,
+                },
+            },
+            chromatic: {
+                viewports: [768, 1024],
+            },
+        }}
+    >
+        {(args) => <AccordionCheckboxes {...args} />}
+    </Story>
+</Canvas>
+
+# Chips
+
+Use chips to quickly select between options. The collapsed version of the accordion can show the selected item as a preview. [Check the chips](?path=/docs/nexus-components-chips--main-story) for further guidance.
+
+<Canvas>
+    <Story
+        name="With Chips"
+        parameters={{
+            docs: {
+                source: {
+                    code: `${AccordionChipsString}\nSCSS:\n${AccordionChipsStyles}`,
+                },
+            },
+            chromatic: {
+                viewports: [768, 1024],
+            },
+        }}
+    >
+        {(args) => <AccordionChips {...args} />}
+    </Story>
+</Canvas>

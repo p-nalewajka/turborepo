@@ -1,0 +1,91 @@
+import { Accordion } from './Accordion.component';
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+
+<Meta
+    title="Nexus/Components/Accordions/Accordion"
+    decorators={[withDesign]}
+    component={Accordion}
+    parameters={{
+        chromatic: {
+            viewports: [320, 768, 1024],
+        },
+    }}
+/>
+
+# Accordion
+
+Component to collapse\expand react node.
+
+<Canvas>
+    <Story
+        name="MainStory"
+        args={{
+            title: 'Accordion title',
+            children: 'Accordion children',
+        }}
+        argTypes={{
+            previewComponent: {
+                control: { type: null },
+            }
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/iKsU61IQFg1I8jteQx3Jva/%E2%9C%85-Nexus-v.3.4.0?node-id=14442%3A34153',
+                allowFullscreen: true,
+            },
+        }}
+    >
+        {(args) => <Accordion {...args} />}
+    </Story>
+</Canvas>
+
+<ArgsTable story="MainStory" />
+
+## Usage
+
+First, import the component:
+
+```js
+import { Accordion } from 'spoton-lib';
+```
+
+Accordion has 2 required props: title and children.
+
+[Check out its implementation example in Accordion Examples.](?path=/docs/nexus-components-accordions-accordion-examples--single-accordion)
+
+# Preview Component
+
+Preview contains a snippet of the content or selection from the expanded panel.
+
+<Canvas>
+    <Story
+        name="Preview Component"
+        args={{
+            title: 'Accordion title',
+            children: 'Accordion children',
+            previewComponent: <div>Preview</div>,
+        }}
+    >
+        {(args) => <Accordion {...args} />}
+    </Story>
+</Canvas>
+
+# Padding
+
+Use `padding` prop for add some padding to container div.
+
+<Canvas>
+    <Story
+        name="Padding"
+        args={{
+            title: 'Accordion title',
+            children: 'Accordion children',
+            padding: 35
+        }}
+    >
+        {(args) => <Accordion {...args} />}
+    </Story>
+</Canvas>

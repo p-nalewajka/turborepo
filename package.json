@@ -17,5 +17,9 @@
     "tsconfig": "workspace:*",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.6.10"
+  "packageManager": "pnpm@8.6.10",
+  "dependencies": {
+    "storybook-addon-designs": "^6.3.1",
+    "testing-library": "^0.0.2"
+  }
 }

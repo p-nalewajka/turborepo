@@ -1,0 +1,119 @@
+// This file exports all colors defined on the UI Kit.
+// Most of spoton-lib components depend on this file!
+// UI Kit reference: https://xd.adobe.com/view/ea75f7ad-02db-498d-6ca2-34e2262fa73d-9c44/
+@import './utils';
+
+$colors: (
+    // colors
+    'aqua': #1e7f9a,
+    'hibiscus': #e80134,
+    'orange': #ff7f00,
+    'yellow': #ead325,
+    'green': #0b9f00,
+    'blue': #2d95fd,
+    'indigo': #0151d1,
+    'violet': #785bf2,
+    'plum': #9c007e,
+    'gray': #676b6c,
+    'black': #000000,
+    'smoke': #f7f8f8,
+    'white': #ffffff,
+    // Previous grayscale. Left here for reference.
+    // 'midnight': #030D0F,   // equivalent to gray 90
+    // 'onyx': #424A4B,       // equivalent to gray 80
+    // 'dim': #818687,        // equivalent to gray 70
+    // 'silver': #C0C3C3,     // equivalent to gray
+    // 'platinum': #E6E7E7,   // equivalent to gray 30
+    // 'snow': #F2F3F3,       // equivalent to gray 20
+    // 'smoke': #F7F8F8,      // equivalent to gray 10
+    // misc
+    'boxshadow': #00000029
+);
+
+// v2
+$colors2: (
+    'base': #77819c,
+    'red': #f73e3c,
+    'yellow': #ffc043,
+    'violet': #705cd6,
+    'green': #00ab4f,
+    'blue': #1769ff,
+    'white': #ffffff,
+    'black': #0f162c,
+    'orange': #cc9a36,
+);
+
+// tints and shades
+$color-variants: (
+    '05': (
+        95%,
+        white,
+    ),
+    '10': (
+        90%,
+        white,
+    ),
+    '20': (
+        70%,
+        white,
+    ),
+    '30': (
+        50%,
+        white,
+    ),
+    '50': (
+        0,
+        black,
+    ),
+    '70': (
+        20%,
+        black,
+    ),
+    '80': (
+        40%,
+        black,
+    ),
+    '90': (
+        60%,
+        black,
+    ),
+);
+
+// Get a base color
+//  $color {string} - the name of the color
+//  $version {string} - the color version to use
+//  returns a hex color
+@function get-color($color, $version: 'v1') {
+    $colors-source: if($version == 'v2', $colors2, $colors);
+    @if map-has-key($colors-source, $color) {
+        @return map-get($colors-source, $color);
+    } @else {
+        @error "Property #{$color} is not a valid base color";
+    }
+}
+
+// Get a stylesheet variant
+//  $variant {string} - the color variant
+//  returns a map containing mix percentage and mix color
+@function get-variant($variant) {
+    @if deep-map-has-key($color-variants, $variant) {
+        @return deep-map-get($color-variants, $variant);
+    } @else {
+        @error "Property #{$variant} is not a valid color variant";
+    }
+}
+
+// Get a stylesheet color
+//  $color {string} - the name of the color
+//  $variant {string} - the color variant
+//  $version {string} - the color version
+//  returns a hex color
+@function color($color, $variant: '50', $version: 'v1') {
+    $c: get-color($color, $version);
+
+    $v: get-variant($variant);
+    $p: nth($v, 1);
+    $b: nth($v, 2);
+
+    @return mix($b, $c, $p);
+}

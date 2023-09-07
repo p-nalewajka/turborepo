@@ -1,0 +1,103 @@
+@import './utils';
+
+// Responsive breakpoints
+
+// These guys are the lower limit for these breakpoints.
+$breakpoints: (
+    'mobile': 320px,
+    'tablet': 768px,
+    'desktop': 1024px,
+);
+
+// Get a breakpoint
+//  $breakpoint {string} - the name of the breakpoint
+//  returns the pixel value of the base breakpoint
+// stylelint-disable scss/at-mixin-pattern
+@function get-breakpoint($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @return map-get($breakpoints, $breakpoint);
+    } @else {
+        @error "Property #{$breakpoint} is not a valid breakpoint";
+    }
+}
+
+// A mixin that responds to sizes smaller than the input
+//  $max-width {size} - the maximum width
+@mixin screen-smaller-than($max-width) {
+    @media screen and (max-width: $max-width) {
+        @content;
+    }
+}
+
+// A mixin that responds to sizes smaller than the input
+//  $min-width {size} - the minimum width
+@mixin screen-greater-than($min-width) {
+    @media screen and (min-width: $min-width) {
+        @content;
+    }
+}
+
+// A mixin that responds to sizes between a range
+//  $min-width {size} - the minimum width
+//  $max-width {size} - the maximum width
+@mixin screen-between($min-width, $max-width) {
+    @media screen and (min-width: $min-width + 1px) and (max-width: $max-width - 1px) {
+        @content;
+    }
+}
+// stylelint-enable scss/at-mixin-pattern
+
+// Repond only to mobile devices smaller than the mobile breakpoint
+// [0, 320px]
+@mixin mobile() {
+    $mobile: get-breakpoint('mobile');
+    @include screen-smaller-than($mobile) {
+        @content;
+    }
+}
+
+/* stylelint-disable scss/comment-no-loud */
+
+/* Usage Example:
+    .myClass {
+        @include mobile {
+            display: none;
+        }
+    }
+*/
+
+// Respond only to mobile devices larger than the mobile breakpoint and
+// smaller or equal than the tablet breakpoint
+// (320px, 768px]
+@mixin tablet() {
+    $mobile: get-breakpoint('mobile');
+    $tablet: get-breakpoint('tablet');
+    @include screen-between($mobile, $tablet + 1px) {
+        @content;
+    }
+}
+
+/* Usage Example:
+    .myClass {
+        @include tablet {
+            display: none;
+        }
+    }
+*/
+
+// Respond only to desktop devices larger than the tablet breakpoint
+// (768px, inf)
+@mixin desktop() {
+    $tablet: get-breakpoint('tablet');
+    @include screen-greater-than($tablet + 1px) {
+        @content;
+    }
+}
+
+/* Usage Example:
+    .myClass {
+        @include desktop {
+            display: none;
+        }
+    }
+*/

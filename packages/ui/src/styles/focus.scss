@@ -1,0 +1,8 @@
+@mixin focusOutline {
+    outline: none;
+    box-shadow: 0 0 0 1px $white, 0 0 0 3px $primary50;
+}
+
+@mixin focusBorder {
+    border: 2px solid $primary50;
+}

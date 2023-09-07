@@ -1,0 +1,48 @@
+// # Font Weights Variables
+
+// This document keeps a updated list of font weights for the fonts in Nexus.
+
+// font weights
+// font weights
+$text-font-weight-heavy: 700; // deprecated
+$text-font-weight-bold: 700; // deprecated
+$text-font-weight-semibold: 600;
+$text-font-weight-medium: 500;
+$text-font-weight-regular: 400;
+
+$normal-font-weights: (
+    'h1': $text-font-weight-semibold,
+    'h2': $text-font-weight-semibold,
+    'h3': $text-font-weight-semibold,
+    'h4': $text-font-weight-semibold,
+    'h5': $text-font-weight-semibold,
+    'h6': $text-font-weight-semibold,
+    'sub1': $text-font-weight-regular,
+    'sub2': $text-font-weight-medium,
+    'p': $text-font-weight-regular,
+    'bold': $text-font-weight-semibold,
+    'label': $text-font-weight-regular,
+    'defaultbtn': $text-font-weight-semibold,
+    'smallbtn': $text-font-weight-semibold,
+    // deprecated
+    'label1': $text-font-weight-regular,
+    'primarybtn': $text-font-weight-semibold,
+    'tertiarybtn': $text-font-weight-semibold,
+    'hyperlink': $text-font-weight-medium,
+    'sub3': $text-font-weight-medium,
+    'label2': $text-font-weight-regular,
+    'overline': $text-font-weight-semibold,
+    'legal': $text-font-weight-semibold,
+);
+
+@function calculate-font-weight($header, $isBold) {
+    @if $isBold == true {
+        @return $text-font-weight-semibold;
+    }
+
+    @if $header == 'default' {
+        @return 'inherit';
+    }
+
+    @return map-get($normal-font-weights, $header);
+}

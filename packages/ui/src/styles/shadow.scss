@@ -1,0 +1,21 @@
+@import './color-variables';
+
+@mixin elevation1($color: $shadow) {
+    box-shadow: 0 2px 4px $color;
+}
+
+@mixin elevation2($color: $shadow) {
+    box-shadow: 0 4px 8px $color;
+}
+
+@mixin elevation3($color: $shadow) {
+    box-shadow: 0 6px 12px $color;
+}
+
+@mixin elevationNegative2($color: $shadow) {
+    box-shadow: 0 -4px 8px $color;
+}
+
+@mixin elevationNegative3($color: $shadow) {
+    box-shadow: 0 -6px 12px $color;
+}

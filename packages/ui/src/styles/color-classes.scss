@@ -1,0 +1,29 @@
+@import './color';
+
+.Color {
+    @each $color, $value in $colors {
+        &___#{$color} {
+            @each $variant, $variant-value in $color-variants {
+                color: color($color) !important;
+
+                &#{$variant} { /* stylelint-disable-line max-nesting-depth, plugin/selector-bem-pattern, prettier/prettier */
+                    color: color($color, $variant) !important;
+                }
+            }
+        }
+    }
+}
+
+.BackgroundColor {
+    @each $color, $value in $colors {
+        &___#{$color} {
+            @each $variant, $variant-value in $color-variants {
+                background-color: color($color);
+
+                &#{$variant} { /* stylelint-disable-line max-nesting-depth, plugin/selector-bem-pattern, prettier/prettier */
+                    background-color: color($color, $variant);
+                }
+            }
+        }
+    }
+}

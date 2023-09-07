@@ -1,0 +1,40 @@
+@import 'ui/styles/text';
+@import 'ui/styles/color-variables';
+
+.AccordionContainer {
+    max-width: 520px;
+}
+
+.Accordion {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $base20;
+
+    &_title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    &_body {
+        @include p;
+
+        padding-top: 1.5625rem;
+        color: $base90;
+    }
+
+    &_preview {
+        @include p;
+
+        color: $base70;
+        cursor: pointer;
+    }
+}
+
+.Title {
+    @include sub1;
+
+    flex: 1;
+    padding-right: 1rem;
+}

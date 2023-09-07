@@ -1,0 +1,216 @@
+// stylelint-disable plugin/selector-bem-pattern
+// # Typography
+
+// This section explains how typography is implemented for SpotOn digital
+// products. Use it as a reference in regards to styling fonts. To learn more
+// about best practices on written content, please refer to the “UX Copy Writing”
+// section of this document (upcoming).
+
+@import './color-variables';
+@import './font-size-variables';
+@import './font-weight-variables';
+@import '@fontsource/poppins/index.css';
+
+// stylelint-disable-next-line scss/at-mixin-pattern
+@mixin Text($variant: 'regular', $header: 'default', $isBold: false) {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: $black;
+    font-weight: calculate-font-weight($header, $isBold);
+    font-size: calculate-font-size($variant, $header);
+    font-family: Poppins, sans-serif;
+    line-height: calculate-line-height($variant, $header);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin h1($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'h1', $isBold);
+}
+
+@mixin h2($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'h2', $isBold);
+}
+
+@mixin h3($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'h3', $isBold);
+}
+
+@mixin h4($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'h4', $isBold);
+}
+
+@mixin h5($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'h5', $isBold);
+}
+
+@mixin h6($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'h6', $isBold);
+}
+
+@mixin sub1($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'sub1', $isBold);
+}
+
+@mixin sub2($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'sub2', $isBold);
+}
+// stylelint-disable-next-line scss/at-mixin-pattern
+@mixin p($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'p', $isBold);
+}
+
+@mixin bold {
+    @include Text('regular', 'default', true);
+
+    display: inline;
+    letter-spacing: 0.01rem;
+}
+
+@mixin label($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'label', $isBold);
+}
+
+@mixin defaultButton($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'defaultbtn', $isBold);
+
+    letter-spacing: 0.01rem;
+}
+
+@mixin smallButton($variant: 'regular', $isBold: false) {
+    @include Text($variant, 'smallbtn', $isBold);
+
+    letter-spacing: 0.01rem;
+}
+
+@mixin number($isBold: false) {
+    @include Text;
+
+    display: inline;
+    font-weight: calculate-font-weight('default', $isBold);
+    letter-spacing: 0.04rem;
+}
+
+// deprecated styles
+// Included for backwards compatibility
+@mixin boldParagraph(
+    $variant: 'regular',
+    $isBold: true,
+    $isTextComponent: false
+) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin. Please use $p('regular' | 'large', true) + display: inline; letter-spacing: 0.01rem;";
+    }
+    @include Text($variant, 'bold', true);
+
+    display: inline;
+    letter-spacing: 0.01rem;
+}
+
+@mixin label1($variant: 'regular', $isBold: false, $isTextComponent: false) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin. Please use $label";
+    }
+    @include Text($variant, 'label1', $isBold);
+}
+
+@mixin primarybtn(
+    $variant: 'regular',
+    $isBold: false,
+    $isTextComponent: false
+) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin. Please use $defaultButton";
+    }
+    @include Text($variant, 'primarybtn', $isBold);
+
+    letter-spacing: 0.01rem;
+}
+
+@mixin tertiarybtn(
+    $variant: 'regular',
+    $isBold: false,
+    $isTextComponent: false
+) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin. Please use $smallButton";
+    }
+    @include Text($variant, 'tertiarybtn', $isBold);
+
+    letter-spacing: 0.01rem;
+}
+
+@mixin hyperlink($variant: 'regular', $isBold: false, $isTextComponent: false) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin with deprecated font-weight: $text-font-weight-medium;. Please use $p + text-decoration: underline; letter-spacing: 0.01rem;";
+    }
+    @include Text($variant, 'hyperlink', $isBold);
+
+    letter-spacing: 0.01rem;
+    text-decoration: underline;
+}
+
+@mixin sub3($variant: 'regular', $isBold: false, $isTextComponent: false) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin with deprecated font-weight: $text-font-weight-medium;. Please use $p + line-height: 1.3125rem;";
+    }
+    @include Text($variant, 'sub3', $isBold);
+}
+
+@mixin label2($variant: 'regular', $isBold: false, $isTextComponent: false) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin with deprecated font-weight: $text-font-weight-medium;. Please use $label + line-height: 1.125rem;";
+    }
+    @include Text($variant, 'label2', $isBold);
+}
+
+@mixin overline($variant: 'regular', $isBold: false, $isTextComponent: false) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin. Please use $label('regular' | 'large', true) + line-height: 0.75rem;";
+    }
+    @include Text($variant, 'overline', $isBold);
+
+    text-transform: uppercase;
+}
+
+@mixin legal($variant: 'regular', $isBold: false, $isTextComponent: false) {
+    @if $isTextComponent == false {
+        @warn "Deprecated mixin. Please use $label('regular' | 'large', true) + line-height: 1.125rem;";
+    }
+    @include Text($variant, 'legal', $isBold);
+}
+// stylelint-disable-next-line scss/at-mixin-pattern
+@mixin global-text-override {
+    h1 {
+        @include h1;
+    }
+
+    h2 {
+        @include h2;
+    }
+
+    h3 {
+        @include h3;
+    }
+
+    h4 {
+        @include h4;
+    }
+
+    h5 {
+        @include h5;
+    }
+
+    h6 {
+        @include h6;
+    }
+
+    p {
+        @include p;
+    }
+
+    label {
+        @include label;
+    }
+}
