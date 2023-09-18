@@ -92,7 +92,7 @@ To generate your changelog, run `pnpm changeset` locally:
 1. Confirm the changeset looks as expected.
 1. A new Markdown file will be created in the `changeset` folder with the summary and a list of the packages included.
 
-### Releasing
+### Releasing - not working at this moment!!
 
 When you push your code to GitHub, the [GitHub Action](https://github.com/changesets/action) will run the `release` script defined in the root `package.json`, although at this moment we dont care about it..
 
